@@ -2,10 +2,10 @@
 This repo contains the code to reproduce the experiments results in the SelfMask paper.
 
 <p align="middle">
-  <img src="src/0053_selfmask.jpg" height="125">
-  <img src="src/ILSVRC2012_test_00005309_selfmask.jpg" height="125">
-  <img src="src/ILSVRC2012_test_00040725_selfmask.jpg" height="125">
-  <img src="src/ILSVRC2012_test_00085874_selfmask.jpg" height="125">
+  <img src="src/0053_selfmask.jpg" height="150">
+  <img src="src/ILSVRC2012_test_00005309_selfmask.jpg" height="150">
+  <img src="src/ILSVRC2012_test_00040725_selfmask.jpg" height="150">
+  <img src="src/ILSVRC2012_test_00085874_selfmask.jpg" height="150">
 </p>
 
 ### Contents
@@ -19,7 +19,7 @@ This repo contains the code to reproduce the experiments results in the SelfMask
 ### Preparation
 #### 1. Download datasets and pseudo-masks
 To train/evaluate SelfMask, you first need to download some datasets.
-For training, please download the [DUTS-TR dataset](http://saliencydetection.net/duts/download/DUTS-TR.zip) and its pseudo-masks.
+For training, please download the [DUTS-TR dataset](http://saliencydetection.net/duts/download/DUTS-TR.zip) and its pseudo-masks (located at datasets/swav_mocov2_dino_p16_k234.json in this repo).
 For evaluation, please download the [DUT-OMRON](http://saliencydetection.net/dut-omron/#org96c3bab), [DUTS-TE](http://saliencydetection.net/duts/download/DUTS-TE.zip), and [ECSSD](https://www.cse.cuhk.edu.hk/leojia/projects/hsaliency/dataset.html) datasets.
 Please don't change the (sub)directory name(s) as the code assumes the original directory names.
 We advise you to put the downloaded dataset(s) into the following directory structure for ease of implementation:
@@ -88,8 +88,8 @@ We provide the pre-trained weights used for our experiments:
 
 &nbsp;|# queries|IoU (%)|model|
 :---:|:---:|:---:|:---:
-SelfMask|10|64.5|link
-SelfMask|20|65.3|link
+SelfMask|10|64.5|[link](https://github.com/NoelShin/selfmask/releases/download/v1.0.0/selfmask_nq10.pt)
+SelfMask|20|65.3|[link](https://github.com/NoelShin/selfmask/releases/download/v1.0.0/selfmask_nq20.pt)
 
 IoUs are measured on the DUTS-TE benchmark.
 
