@@ -1,0 +1,56 @@
+# augmentations
+use_copy_paste: false
+scale_range: [ 0.1, 1.0 ]
+repeat_image: false
+
+# base directories
+dir_ckpt: "/users/gyungin/selfmask/ckpt"  # "/work/gyungin/selfmask/ckpt"
+dir_dataset: "/scratch/shared/beegfs/gyungin/datasets"
+
+# clustering
+k: [2, 3, 4]
+clustering_mode: "spectral"
+use_gpu: true  # if you want to use gpu-accelerated code for clustering
+scale_factor: 2  # "how much you want to upsample encoder features before clustering"
+
+# dataset
+dataset_name: "duts"
+use_pseudo_masks: true
+train_image_size: 224
+eval_image_size: 224
+n_percent: 100
+n_copy_pastes: null
+pseudo_masks_fp: "/users/gyungin/selfmask/datasets/swav_mocov2_dino_p16_k234.json"
+
+# dataloader:
+batch_size: 8
+num_workers: 4
+pin_memory: true
+
+# networks
+abs_2d_pe_init: false
+arch: "vit_small"
+lateral_connection: false
+learnable_pixel_decoder: false  # if False, use the bilinear interpolation
+use_binary_classifier: true # if True, use a binary classifier to get an objectness for each query from transformer decoder
+n_decoder_layers: 6
+n_queries: 20
+num_layers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+patch_size: 8
+training_method: "dino"  # "supervised", "deit", "dino", "mocov2", "swav"
+
+# objective
+loss_every_decoder_layer: true
+weight_dice_loss: 1.0
+weight_focal_loss: 0.0
+
+# optimizer
+lr: 0.000006 # default: 0.00006
+lr_warmup_duration: 0  # 5
+momentum: 0.9
+n_epochs: 12
+weight_decay: 0.01
+optimizer_type: "adamw"
+
+# validation
+benchmarks: null
