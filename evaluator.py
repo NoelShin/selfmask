@@ -321,7 +321,7 @@ if __name__ == '__main__':
     )
 
     parser.add_argument(
-        "--dataset_name", '-dn', type=str, default="ecssd",
+        "--dataset_name", '-dn', type=str, default="duts",
         choices=["dut_omron", "duts", "ecssd"]
     )
 

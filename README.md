@@ -1,5 +1,5 @@
-## SelfMask: Unsupervised Salient Object Detection with Spectral Cluster Voting
-This repo contains the code to reproduce the experiments results in the SelfMask paper.
+## Unsupervised Salient Object Detection with Spectral Cluster Voting
+This repo contains the code to reproduce the experiments results in the paper ["Unsupervised Salient Object Detection with Spectral Cluster Voting"](https://arxiv.org/pdf/2203.12614.pdf).
 
 <p align="middle">
   <img src="src/0053_selfmask.jpg" height="150">
@@ -94,7 +94,14 @@ SelfMask|20|65.3|[link](https://github.com/NoelShin/selfmask/releases/download/v
 IoUs are measured on the DUTS-TE benchmark.
 
 ### Citation
-To be Updated.
+```
+@article{shin2022selfmask,    
+  author = {Gyungin Shin and Samuel Albanie and Weidi Wie},
+  title = {Unsupervised Salient Object Detection with Spectral Cluster Voting},
+  journal = {arXiv preprint arXiv:2203.12614},
+  year = {2022}
+}
+```
 
 ### Acknowledgements
 We borrowed the code for ViT, DINO, and MaskFormer from https://github.com/rwightman/pytorch-image-models, https://github.com/facebookresearch/dino, and https://github.com/facebookresearch/MaskFormer, respectively.
