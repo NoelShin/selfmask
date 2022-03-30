@@ -355,6 +355,7 @@ if __name__ == '__main__':
 
     evaluator = Evaluator(
         network=model,
+        dir_dataset=args.dir_dataset,
         visualizer=Visualizer()
     )
 
