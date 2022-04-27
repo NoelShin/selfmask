@@ -1,0 +1,6 @@
+@article{shin2022selfmask,
+  author = {Gyungin Shin and Samuel Albanie and Weidi Wie},
+  title = {Unsupervised Salient Object Detection with Spectral Cluster Voting},
+  journal = {arXiv preprint arXiv:2203.12614},
+  year = {2022}
+}
