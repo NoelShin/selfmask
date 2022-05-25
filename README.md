@@ -1,4 +1,8 @@
-## Unsupervised Salient Object Detection with Spectral Cluster Voting
+## Unsupervised Salient Object Detection with Spectral Cluster Voting [[L3D-IVU CVPRW 2022]](https://sites.google.com/view/l3d-ivu/)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-dut-omron)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-dut-omron?p=unsupervised-salient-object-detection-with)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-duts)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-duts?p=unsupervised-salient-object-detection-with)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-ecssd)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-ecssd?p=unsupervised-salient-object-detection-with)
+
 This repo contains the code to reproduce the experiments results in the paper ["Unsupervised Salient Object Detection with Spectral Cluster Voting"](https://arxiv.org/pdf/2203.12614.pdf).
 
 <p align="middle">
