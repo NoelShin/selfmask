@@ -4,6 +4,7 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-ecssd)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-ecssd?p=unsupervised-salient-object-detection-with)
 
 This repo contains the code to reproduce the experiments results in the paper ["Unsupervised Salient Object Detection with Spectral Cluster Voting"](https://arxiv.org/pdf/2203.12614.pdf).
+[[Project page]](https://www.robots.ox.ac.uk/~vgg/research/selfmask/)
 
 <p align="middle">
   <img src="src/0053_selfmask.jpg" height="150">
@@ -99,11 +100,11 @@ IoUs are measured on the DUTS-TE benchmark.
 
 ### Citation
 ```
-@article{shin2022selfmask,    
-  author = {Gyungin Shin and Samuel Albanie and Weidi Wie},
-  title = {Unsupervised Salient Object Detection with Spectral Cluster Voting},
-  journal = {arXiv preprint arXiv:2203.12614},
-  year = {2022}
+@InProceedings{shin2022selfmask,
+    author    = {Shin, Gyungin and Albanie, Samuel and Xie, Weidi},
+    title = {Unsupervised Salient Object Detection with Spectral Cluster Voting},
+    booktitle = {CVPRW},
+    year      = {2022}
 }
 ```
 
