@@ -92,7 +92,7 @@ class BaseDataset(Dataset):
             color_jitter = ColorJitter(brightness=0.8, contrast=0.8, saturation=0.8, hue=0.2)
             image = RandomApply([color_jitter], p=0.8)(image)
 
-        if random_color_jitter is not None:
+        if random_grayscale_p is not None:
             image = RandomGrayscale(random_grayscale_p)(image)
 
         if random_gaussian_blur:

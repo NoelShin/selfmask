@@ -13,12 +13,16 @@ This repo contains the code to reproduce the experiments results in the paper ["
 </p>
 
 ### Contents
+* [Demo](https://huggingface.co/spaces/noelshin/selfmask)
 * [Preparation](#preparation)
 * [Training](#training)
 * [Inference](#inference)
 * [Pre-trained weights](#pre-trained-weights)
 * [Citation](#citation)
 * [Acknowledgements](#acknowledgements)
+
+### Demo
+Please find [our demo](https://huggingface.co/spaces/noelshin/selfmask) built with Hugging Face and Gradio.
 
 ### Preparation
 #### 1. Download datasets and pseudo-masks
@@ -99,11 +103,11 @@ IoUs are measured on the DUTS-TE benchmark.
 
 ### Citation
 ```
-@article{shin2022selfmask,    
-  author = {Gyungin Shin and Samuel Albanie and Weidi Wie},
-  title = {Unsupervised Salient Object Detection with Spectral Cluster Voting},
-  journal = {arXiv preprint arXiv:2203.12614},
-  year = {2022}
+@InProceedings{shin2022selfmask,
+    author    = {Shin, Gyungin and Albanie, Samuel and Xie, Weidi},
+    title     = {Unsupervised Salient Object Detection With Spectral Cluster Voting},
+    booktitle = {CVPRW},
+    year      = {2022}
 }
 ```
 
