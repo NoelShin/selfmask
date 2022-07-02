@@ -88,7 +88,7 @@ It is worth noting that, by default, the code will evaluate the model at the end
 ### Inference
 To run an inference of a pre-trained model, please run
 ```shell
-python3 evaluator.sh --dataset_name $DATASET_NAME --p_state_dict $PATH_TO_WEIGHTS --config $PATH_TO_MODEL_CONFIG
+python3 evaluator.py --dataset_name $DATASET_NAME --p_state_dict $PATH_TO_WEIGHTS --config $PATH_TO_MODEL_CONFIG
 ```
 Here, the config file is the configuration file used for pre-training.
 
@@ -97,8 +97,8 @@ We provide the pre-trained weights used for our experiments:
 
 &nbsp;|# queries|IoU (%)|model|
 :---:|:---:|:---:|:---:
-SelfMask|10|64.5|[link](https://github.com/NoelShin/selfmask/releases/download/v1.0.0/selfmask_nq10.pt)
-SelfMask|20|65.3|[link](https://github.com/NoelShin/selfmask/releases/download/v1.0.0/selfmask_nq20.pt)
+SelfMask|10|64.5|[link](https://www.robots.ox.ac.uk/~vgg/research/selfmask/shared_files/selfmask_nq10.pt)
+SelfMask|20|65.3|[link](https://www.robots.ox.ac.uk/~vgg/research/selfmask/shared_files/selfmask_nq20.pt)
 
 IoUs are measured on the DUTS-TE benchmark.
 

@@ -311,13 +311,13 @@ if __name__ == '__main__':
     parser.add_argument(
         "--config",
         type=str,
-        default="/users/gyungin/selfmask_bak/configs/duts-dino-k234-nq20-224-swav-mocov2-dino-p16-sr10100.yaml"
+        default="/Users/noel/projects/selfmask/configs/duts-dino-k234-nq20-224-swav-mocov2-dino-p16-sr10100.yaml"
     )
 
     parser.add_argument(
         "--p_state_dict",
         type=str,
-        default="/users/gyungin/selfmask_bak/ckpt/nq20_ndl6_bc_sr10100_duts_pm_all_k2,3,4_md_seed0_final/eval/hku_is/best_model.pt",
+        default="/Users/noel/Desktop/selfmask_nq20_model.pt",
     )
 
     parser.add_argument(
@@ -347,7 +347,7 @@ if __name__ == '__main__':
     # set seed
     set_seeds(args.seed)
 
-    state_dict = torch.load(args.p_state_dict)["model"]
+    state_dict = torch.load(args.p_state_dict, map_location=device)
     model = get_model(arch="maskformer", configs=args).to(device)
     model.load_state_dict(state_dict)
     model.eval()
