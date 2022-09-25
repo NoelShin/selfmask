@@ -10,7 +10,7 @@ from torchvision.transforms import ColorJitter, RandomApply, RandomGrayscale
 from torchvision.transforms.functional import InterpolationMode as IM
 import torchvision.transforms.functional as TF
 from tqdm import tqdm
-from datasets.mask_generator import MaskGenerator
+# from datasets.mask_generator import MaskGenerator
 from datasets.augmentations.geometric_transforms import random_crop, random_hflip, random_scale, resize
 from datasets.augmentations.gaussian_blur import GaussianBlur
 
@@ -179,48 +179,48 @@ class BaseDataset(Dataset):
         self.use_aug = flag
         print(f"Data augmentation is turned {'on' if flag else 'off'} for training.")
 
-    @torch.no_grad()
-    def generate_pseudo_masks(
-            self,
-            network: callable,
-            k: int,
-            scale_factor: int,
-            arch: str,
-            fp: Optional[str] = None
-    ) -> None:
-        if os.path.exists(fp):
-            print(fp)
-            masks_info: dict = json.load(open(fp, 'r'))
-            print(len(masks_info))
-
-            self.p_imgs: List[str] = [
-                f"{self.dir_dataset}/{filename}" for filename in sorted(list(masks_info.keys()))
-            ]
-
-            self.p_train_imgs: List[str] = [
-                f"{self.dir_dataset}/train/{filename.split('_')[0]}/{filename}" for filename in sorted(list(masks_info.keys()))
-            ]
-            self.list_mask_info.append(masks_info)
-            return
-        st = time()
-
-        # generate new pseudo-masks based on the given k
-        mask_generator = MaskGenerator(fp=fp)
-        network.eval()
-        self.list_mask_info.append(mask_generator(
-            image_paths=self.p_train_imgs,
-            network=network,
-            k=k,
-            image_size=self.train_image_size,
-            cluster_type="spectral",
-            arch=arch,
-            scale_factor=scale_factor,
-            batch_size=48 if self.train_image_size < 256 else 16,
-        ))
-        print(
-            f"New pseudo masks with k={k} and img size={self.train_image_size} are generated. ({time() - st:.3f} sec.)"
-        )
-        self.p_imgs = list(self.list_mask_info[0].keys())
+    # @torch.no_grad()
+    # def generate_pseudo_masks(
+    #         self,
+    #         network: callable,
+    #         k: int,
+    #         scale_factor: int,
+    #         arch: str,
+    #         fp: Optional[str] = None
+    # ) -> None:
+    #     if os.path.exists(fp):
+    #         print(fp)
+    #         masks_info: dict = json.load(open(fp, 'r'))
+    #         print(len(masks_info))
+    #
+    #         self.p_imgs: List[str] = [
+    #             f"{self.dir_dataset}/{filename}" for filename in sorted(list(masks_info.keys()))
+    #         ]
+    #
+    #         self.p_train_imgs: List[str] = [
+    #             f"{self.dir_dataset}/train/{filename.split('_')[0]}/{filename}" for filename in sorted(list(masks_info.keys()))
+    #         ]
+    #         self.list_mask_info.append(masks_info)
+    #         return
+    #     st = time()
+    #
+    #     # generate new pseudo-masks based on the given k
+    #     mask_generator = MaskGenerator(fp=fp)
+    #     network.eval()
+    #     self.list_mask_info.append(mask_generator(
+    #         image_paths=self.p_train_imgs,
+    #         network=network,
+    #         k=k,
+    #         image_size=self.train_image_size,
+    #         cluster_type="spectral",
+    #         arch=arch,
+    #         scale_factor=scale_factor,
+    #         batch_size=48 if self.train_image_size < 256 else 16,
+    #     ))
+    #     print(
+    #         f"New pseudo masks with k={k} and img size={self.train_image_size} are generated. ({time() - st:.3f} sec.)"
+    #     )
+    #     self.p_imgs = list(self.list_mask_info[0].keys())
 
     def __len__(self) -> int:
         return len(self.p_imgs)

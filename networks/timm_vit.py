@@ -329,7 +329,7 @@ class VisionTransformer(nn.Module):
     #     return x
 
     # noel - start
-    def make_square(self, x: torch.Tensor):
+    def make_input_divisible(self, x: torch.Tensor):
         """Pad some pixels to make the input size divisible by the patch size."""
         B, _, H_0, W_0 = x.shape
         pad_w = (self.patch_size - W_0 % self.patch_size) % self.patch_size

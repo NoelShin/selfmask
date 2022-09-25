@@ -1,4 +1,4 @@
-## Unsupervised Salient Object Detection with Spectral Cluster Voting [[L3D-IVU CVPRW 2022]](https://sites.google.com/view/l3d-ivu/)
+## Unsupervised Salient Object Detection with Spectral Cluster Voting [[CVPRW 2022]](https://sites.google.com/view/l3d-ivu/)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-dut-omron)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-dut-omron?p=unsupervised-salient-object-detection-with)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-duts)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-duts?p=unsupervised-salient-object-detection-with)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-ecssd)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-ecssd?p=unsupervised-salient-object-detection-with)
@@ -19,6 +19,7 @@ This repo contains the code to reproduce the experiments results in the paper ["
 * [Training](#training)
 * [Inference](#inference)
 * [Pre-trained weights](#pre-trained-weights)
+* [Generating pseudo-masks with own images](#pseudo-masks)
 * [Citation](#citation)
 * [Acknowledgements](#acknowledgements)
 
@@ -101,6 +102,10 @@ SelfMask|10|64.5|[link](https://www.robots.ox.ac.uk/~vgg/research/selfmask/share
 SelfMask|20|65.3|[link](https://www.robots.ox.ac.uk/~vgg/research/selfmask/shared_files/selfmask_nq20.pt)
 
 IoUs are measured on the DUTS-TE benchmark.
+
+### Generating pseudo-masks with own images
+To generate pseudo-masks for your own images, please use `mask_generator.py` file.
+All you need to do is to set a list of image paths in the script (and save the resulting file if needed).
 
 ### Citation
 ```
