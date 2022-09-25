@@ -19,7 +19,7 @@ This repo contains the code to reproduce the experiments results in the paper ["
 * [Training](#training)
 * [Inference](#inference)
 * [Pre-trained weights](#pre-trained-weights)
-* [Generating pseudo-masks with own images](#pseudo-masks)
+* [Generating pseudo-masks with own images](#generating-pseudo-masks-with-own-images)
 * [Citation](#citation)
 * [Acknowledgements](#acknowledgements)
 
