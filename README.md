@@ -1,5 +1,10 @@
-## Unsupervised Salient Object Detection with Spectral Cluster Voting
+## Unsupervised Salient Object Detection with Spectral Cluster Voting [[L3D-IVU CVPRW 2022]](https://sites.google.com/view/l3d-ivu/)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-dut-omron)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-dut-omron?p=unsupervised-salient-object-detection-with)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-duts)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-duts?p=unsupervised-salient-object-detection-with)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-ecssd)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-ecssd?p=unsupervised-salient-object-detection-with)
+
 This repo contains the code to reproduce the experiments results in the paper ["Unsupervised Salient Object Detection with Spectral Cluster Voting"](https://arxiv.org/pdf/2203.12614.pdf).
+[[Project page]](https://www.robots.ox.ac.uk/~vgg/research/selfmask/)
 
 <p align="middle">
   <img src="src/0053_selfmask.jpg" height="150">
@@ -9,12 +14,16 @@ This repo contains the code to reproduce the experiments results in the paper ["
 </p>
 
 ### Contents
+* [Demo](https://huggingface.co/spaces/noelshin/selfmask)
 * [Preparation](#preparation)
 * [Training](#training)
 * [Inference](#inference)
 * [Pre-trained weights](#pre-trained-weights)
 * [Citation](#citation)
 * [Acknowledgements](#acknowledgements)
+
+### Demo
+Please find [our demo](https://huggingface.co/spaces/noelshin/selfmask) built with Hugging Face and Gradio.
 
 ### Preparation
 #### 1. Download datasets and pseudo-masks
@@ -79,7 +88,7 @@ It is worth noting that, by default, the code will evaluate the model at the end
 ### Inference
 To run an inference of a pre-trained model, please run
 ```shell
-python3 evaluator.sh --dataset_name $DATASET_NAME --p_state_dict $PATH_TO_WEIGHTS --config $PATH_TO_MODEL_CONFIG
+python3 evaluator.py --dataset_name $DATASET_NAME --p_state_dict $PATH_TO_WEIGHTS --config $PATH_TO_MODEL_CONFIG
 ```
 Here, the config file is the configuration file used for pre-training.
 
@@ -88,18 +97,18 @@ We provide the pre-trained weights used for our experiments:
 
 &nbsp;|# queries|IoU (%)|model|
 :---:|:---:|:---:|:---:
-SelfMask|10|64.5|[link](https://github.com/NoelShin/selfmask/releases/download/v1.0.0/selfmask_nq10.pt)
-SelfMask|20|65.3|[link](https://github.com/NoelShin/selfmask/releases/download/v1.0.0/selfmask_nq20.pt)
+SelfMask|10|64.5|[link](https://www.robots.ox.ac.uk/~vgg/research/selfmask/shared_files/selfmask_nq10.pt)
+SelfMask|20|65.3|[link](https://www.robots.ox.ac.uk/~vgg/research/selfmask/shared_files/selfmask_nq20.pt)
 
 IoUs are measured on the DUTS-TE benchmark.
 
 ### Citation
 ```
-@article{shin2022selfmask,    
-  author = {Gyungin Shin and Samuel Albanie and Weidi Wie},
-  title = {Unsupervised Salient Object Detection with Spectral Cluster Voting},
-  journal = {arXiv preprint arXiv:2203.12614},
-  year = {2022}
+@InProceedings{shin2022selfmask,
+    author    = {Shin, Gyungin and Albanie, Samuel and Xie, Weidi},
+    title     = {Unsupervised Salient Object Detection With Spectral Cluster Voting},
+    booktitle = {CVPRW},
+    year      = {2022}
 }
 ```
 
