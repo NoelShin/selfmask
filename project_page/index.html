@@ -1,0 +1,347 @@
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+
+	.row_imgs {
+	  text-align:center;
+	}
+
+	.row_imgs img {
+		display:inline-block;
+    margin:5px 20px;
+    padding:5px;
+	}
+
+</style>
+
+<html>
+<head>
+	<title>Unsupervised Salient Object Detection with Spectral Cluster Voting</title>
+	<meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="All you need are a few pixels: semantic segmentation with PixelPick" />
+	<meta property="og:description" content="Paper description." />
+
+	<!-- Get from Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src=""></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75863369-6');
+	</script>
+
+	<!--Enable LaTeX within html5-->
+
+	<script type="text/javascript" async
+		src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
+
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:32px">Unsupervised Salient Object Detection with Spectral Cluster Voting</span>
+		<table align=center width=600px>
+				<tr>
+					<td><br></td>
+				</tr>
+				<tr>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:18pt"><a href="https://www.robots.ox.ac.uk/~gyungin/">Gyungin Shin</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:18pt"><a href="https://www.robots.ox.ac.uk/~albanie/">Samuel Albanie</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:18pt"><a href="https://weidixie.github.io">Weidi Xie</a></span>
+						</center>
+					</td>
+				</tr>
+			<table align=center width=250px>
+				<tr>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:18pt"><a href='https://arxiv.org/pdf/2203.12614.pdf'>[Paper]</a></span>
+						</center>
+					</td>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:18pt"><a href='resources/poster.pdf'>[Poster]</a></span>
+						</center>
+					</td>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:18pt"><a href='https://github.com/NoelShin/selfmask'>[GitHub]</a></span><br>
+						</center>
+					</td>
+				</tr>
+			</table>
+		</table>
+	</center>
+	</br>
+	<!--Teaser image-->
+	<table align=center width=600px>
+		<tr>
+			<td>
+  			<img style="width: 850px" src="./resources/demo.png"/>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<br/>
+			</td>
+		</tr>
+		<!-- description for the teaser -->
+		<tr>
+			<td>
+					<div style="text-align: justify; width: 850px">
+						Sample visualisations of the pseudo-masks and predictions from our
+						model on the ECSSD, DUT-OMRON, and DUTS-TE benchmarks. From left to
+						right, the input image, ground-truth mask, a pseudo-mask decided by
+						the proposed voting-based salient mask selection, and the prediction
+						of our model are shown. Blue and orange coloured regions denote the
+						intersection and difference between a ground-truth and a predicted
+						mask. Best viewed in colour.
+						</div>
+			</td>
+		<tr>
+		</tr>
+	</table>
+
+	<hr>
+
+	<!--Abstract-->
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td>
+				<div style="text-align: justify">
+					In this paper, we tackle the challenging task of unsupervised salient
+					object detection (SOD) by leveraging spectral clustering on
+					self-supervised features. We make the following contributions:
+					(i) We revisit spectral clustering and demonstrate its potential to
+					group the pixels of salient objects; (ii) Given mask proposals from
+					multiple applications of spectral clustering on image features
+					computed from various self-supervised models, e.g., MoCov2, SwAV,
+					DINO, we propose a simple but effective winner-takes-all voting
+					mechanism for selecting the salient masks, leveraging object priors
+					based on framing and distinctiveness; (iii) Using the selected object
+					segmentation as pseudo groundtruth masks, we train a salient object
+					detector, dubbed SelfMask, which outperforms prior approaches on three
+					unsupervised SOD benchmarks.
+					Code is publicly available at
+					<a href='https://github.com/NoelShin/selfmask'>this https URL</a>.
+				</div>
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<hr>
+
+	<!--Overview image of PixelPick-->
+	<table align=center width=850px>
+		<center><h1>Overview</h1></center>
+		<tr>
+			<td>
+					<img class="round" style="width:850px" src="./resources/overview.png"/>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<br>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<div style="text-align: justify">
+					Given different self-supervised encoders, we first generate a set of
+					pseudo-mask candidates per image using spectral clustering before the
+					training step. In the figure we show 12 masks from clusterings from
+					three different encoder features with \(k=4\). We select the most salient
+					mask among them via the proposed voting strategy and use it as a
+					pseudo-mask for the image. Then we train our model to predict \(n_q\)
+					queries (i.e., predictions), all of which are encouraged to be similar to the salient mask. To make the model aware of the objectness of each prediction, we use the ranking loss which encourages the objectness score of a prediction closer to the salient mask to be higher. At inference time, we select the prediction with the highest objectness score.
+				</div>
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<hr>
+
+	<!--Overview image of PixelPick-->
+	<table align=center width=850px>
+		<center><h1>Results on the salient object detection benchmarks</h1></center>
+		<tr>
+			<td>
+				<div class="row_imgs" align=center>
+					<img src="resources/results.png" width=95%>
+					<div class="clear"></div>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<br>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<div style="text-align: justify">
+					For all metrics, higher number indicates better results. The best
+					score per column is highlighted in bold. We observe that SelfMask
+					yields improved performance over prior state-of-the-art approaches
+					across all benchmarks.
+				</div>
+			</td>
+		</tr>
+
+	</table>
+	<br>
+
+	<hr>
+
+	<table align=center width=450px>
+		<center><h1>Citation</h1></center>
+		<tr>
+			<td><a href="resources/camera-ready.pdf"><img class="layered-paper-big" style="height:175px" src="./resources/paper.png"/></a></td>
+			<td><span style="font-size:14pt">Gyungin Shin, Samuel Albanie, Weidi Xie<br>
+				<b>Unsupervised Salient Object Detection with Spectral Cluster Voting</b><br>
+				<span>CVPRW, 2022</span>
+				<span style="font-size:4pt"><a href="#"><br></a>
+				</span>
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<table align=center width=600px>
+		<tr>
+			<td><span style="font-size:18pt"><center>
+				<a href="resources/bibtex.txt" download>[Bibtex]</a>
+			</center></td>
+		</tr>
+	</table>
+
+	<hr>
+	<br>
+
+	<table align=center width=900px>
+		<tr>
+			<td width=400px>
+				<left>
+					<center><h1>Acknowledgements</h1></center>
+					GS is supported by AI Factory, Inc. in Korea. WX is supported by
+					Visual AI (EP/T028572/1). SA would like to thank Z. Novak and N. Novak
+					for enabling his contribution. GS would like to thank Jaesung Huh for
+					proof-reading. The design of this project page was borrowed and
+					modified from the template made by
+					<a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and
+					<a href="http://richzhang.github.io/">Richard Zhang</a>.
+				</left>
+			</td>
+		</tr>
+	</table>
+
+<br>
+</body>
+</html>
