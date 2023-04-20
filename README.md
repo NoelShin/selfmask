@@ -1,4 +1,19 @@
 ## Unsupervised Salient Object Detection with Spectral Cluster Voting [[CVPRW 2022]](https://sites.google.com/view/l3d-ivu/)
+
+```
+      ___           ___                         ___         ___           ___           ___           ___     
+     /  /\         /  /\                       /  /\       /__/\         /  /\         /  /\         /__/|    
+    /  /:/_       /  /:/_                     /  /:/_     |  |::\       /  /::\       /  /:/_       |  |:|    
+   /  /:/ /\     /  /:/ /\    ___     ___    /  /:/ /\    |  |:|:\     /  /:/\:\     /  /:/ /\      |  |:|    
+  /  /:/ /::\   /  /:/ /:/_  /__/\   /  /\  /  /:/ /:/  __|__|:|\:\   /  /:/~/::\   /  /:/ /::\   __|  |:|    
+ /__/:/ /:/\:\ /__/:/ /:/ /\ \  \:\ /  /:/ /__/:/ /:/  /__/::::| \:\ /__/:/ /:/\:\ /__/:/ /:/\:\ /__/\_|:|____
+ \  \:\/:/~/:/ \  \:\/:/ /:/  \  \:\  /:/  \  \:\/:/   \  \:\~~\__\/ \  \:\/:/__\/ \  \:\/:/~/:/ \  \:\/:::::/
+  \  \::/ /:/   \  \::/ /:/    \  \:\/:/    \  \::/     \  \:\        \  \::/       \  \::/ /:/   \  \::/~~~~ 
+   \__\/ /:/     \  \:\/:/      \  \::/      \  \:\      \  \:\        \  \:\        \__\/ /:/     \  \:\     
+     /__/:/       \  \::/        \__\/        \  \:\      \  \:\        \  \:\         /__/:/       \  \:\    
+     \__\/         \__\/                       \__\/       \__\/         \__\/         \__\/         \__\/    
+
+```
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-dut-omron)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-dut-omron?p=unsupervised-salient-object-detection-with)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-duts)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-duts?p=unsupervised-salient-object-detection-with)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/unsupervised-salient-object-detection-with/unsupervised-saliency-detection-on-ecssd)](https://paperswithcode.com/sota/unsupervised-saliency-detection-on-ecssd?p=unsupervised-salient-object-detection-with)
